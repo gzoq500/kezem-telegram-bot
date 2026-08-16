@@ -6,12 +6,12 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from telegram.constants import ChatAction
 
-TELEGRAM_BOT_TOKEN = "8810619082:AAEAqdW-q0w4y7QgQvSuaMJBpPJ6SYp3mdY"
+TELEGRAM_BOT_TOKEN = os.environ.get("BOT_TOKEN", "GANTI_DENGAN_TOKEN_BOTFATHER")
 AGY_PATH = "/root/.local/bin/agy"
 LOG_FILE = "/root/telegram_bot_history.log"
 
 # Hanya chat ID ini yang dijawab (kosongkan list = terbuka semua)
-ALLOWED_CHAT_IDS = [904411212]
+ALLOWED_CHAT_IDS = [int(x) for x in os.environ.get("ALLOWED_CHAT_IDS", "904411212").split(",") if x.strip()]
 
 # Persona: biar balasan terasa seperti chat orang yang sadar identitasnya
 SYSTEM_STYLE = (

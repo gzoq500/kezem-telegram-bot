@@ -1,6 +1,6 @@
 {
-  "bot_token": "8810619082:AAEAqdW-q0w4y7QgQvSuaMJBpPJ6SYp3mdY",
-  "allowed_chat_ids": [904411212],
+  "bot_token": "GANTI_DENGAN_TOKEN_BOTFATHER",
+  "allowed_chat_ids": [904411212]  # GANTI dengan chat ID kamu,
   "agy_bin": "/root/.local/bin/agy",
   "model": "gemini-3.1-pro-high",
   "keep_context": true,

@@ -44,25 +44,34 @@ cd kezem-telegram-bot
 #    - Jalankan `agy` sekali, login dengan akun Google
 agy models   # verifikasi login berhasil (harus list model)
 
-# 3. Jalankan installer
+# 3. Set token bot & chat ID kamu (dari @BotFather / @userinfobot)
+export BOT_TOKEN="1234567890:token_kamu_disini"
+export ALLOWED_CHAT_IDS="chat_id_kamu"
+
+# 4. Jalankan installer
 bash install.sh
 
-# 4. Start bot
+# 5. Start bot
 systemctl start gemini-telegram-bot
 
-# 5. Cek jalan
+# 6. Cek jalan
 systemctl status gemini-telegram-bot
 journalctl -u gemini-telegram-bot -f
 ```
 
 ### Konfigurasi
 
-Edit `/root/bot_telegram.py` bagian atas:
+Bot membaca konfigurasi dari **environment variable** (tidak ada token di kode):
 
-```python
-TELEGRAM_BOT_TOKEN = "..."      # token dari @BotFather
-ALLOWED_CHAT_IDS = [904411212]  # chat ID kamu (kosongkan [] = terbuka semua)
-```
+| Variabel | Fungsi | Default |
+|---|---|---|
+| `BOT_TOKEN` | Token dari @BotFather | harus diisi |
+| `ALLOWED_CHAT_IDS` | Chat ID yang diizinkan (koma untuk banyak) | `904411212` |
+
+Cara set: `export BOT_TOKEN=...` sebelum `install.sh` (installer akan
+menulisnya ke service systemd), atau edit langsung
+`/etc/systemd/system/gemini-telegram-bot.service` lalu
+`systemctl daemon-reload && systemctl restart gemini-telegram-bot`.
 
 Ganti model di argument `agy` (default `--effort high`):
 opsi: `gemini-3.1-pro-high`, `gemini-3.7-flash-high`,
