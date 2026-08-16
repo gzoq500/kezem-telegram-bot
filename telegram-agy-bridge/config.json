@@ -1,0 +1,11 @@
+{
+  "bot_token": "8810619082:AAEAqdW-q0w4y7QgQvSuaMJBpPJ6SYp3mdY",
+  "allowed_chat_ids": [904411212],
+  "agy_bin": "/root/.local/bin/agy",
+  "model": "gemini-3.1-pro-high",
+  "keep_context": true,
+  "max_reply_chars": 4000,
+  "agy_timeout": 300,
+  "poll_timeout": 60,
+  "system_prefix": "You are a helpful assistant replying on Telegram. Keep replies concise (under 3000 chars), use plain text, no heavy markdown."
+}

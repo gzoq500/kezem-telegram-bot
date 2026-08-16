@@ -1,0 +1,16 @@
+[Unit]
+Description=Gemini Telegram Bot (agy + python-telegram-bot)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/root/venv/bin/python /root/bot_telegram.py
+WorkingDirectory=/root
+Restart=always
+RestartSec=5
+Environment=PATH=/root/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=HOME=/root
+
+[Install]
+WantedBy=multi-user.target
